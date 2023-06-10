@@ -25,6 +25,11 @@ export const ListElement = styled.li`
 	border: 1px solid rgba(0, 123, 255, 0.25);
 
 	cursor: pointer;
+  
+  &:hover{
+    color: #005eff;
+    border-color: #005eff;
+  }
 `;
 
 export const ButtonClear = styled.button`
@@ -34,4 +39,9 @@ export const ButtonClear = styled.button`
 
 	font-size: 16px;
 	cursor: pointer;
+    outline-color: rgba(0, 123, 255, 0.25);
+    outline-width: 1px;
+  &:hover{
+    color: #005eff;
+  }
 `;

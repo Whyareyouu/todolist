@@ -18,9 +18,12 @@ export const TodoButton = styled.button<TodoTextProps>`
   border: 2px solid #cfb2c8;
   border-radius: 25%;
   cursor: pointer;
-  outline: none;
+  outline-color: #e398d1;
   background-color: transparent;
   position: relative;
+  &:hover{
+    border-color: #e398d1;
+  }
 
   ${props => props.completed && css`
     &::before {
