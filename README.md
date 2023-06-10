@@ -1,7 +1,7 @@
 
 ![image](https://github.com/Whyareyouu/todolist-for-mindbox/assets/54592995/24cdcd60-6a96-4924-a54b-430c70e36f1e)
 
-## link to the application: https://todolist-for-mindbox .vercel.app/
+## link to the application: https://todolist-for-mindbox.vercel.app/
 
 ## Available Scripts
 In the project directory, you can run:
