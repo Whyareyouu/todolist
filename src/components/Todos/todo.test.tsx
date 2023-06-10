@@ -3,8 +3,8 @@ import { ITodo } from "../../context/reducer/Todo.interface";
 import Todos from "./Todos";
 
 const todos: ITodo[] = [
-	{ id: 1, text: "Task 1", completed: false },
-	{ id: 2, text: "Task 2", completed: true },
+	{ _id: 1, text: "Task 1", completed: false },
+	{ _id: 2, text: "Task 2", completed: true },
 ];
 
 describe("Тестирование todos компонента", () => {
@@ -26,7 +26,7 @@ describe("Тестирование todos компонента", () => {
 		const mockOnToggle = jest.fn();
 		render(
 			<Todos
-				todos={[{ id: 1, text: "Task 1", completed: false }]}
+				todos={[{ _id: 1, text: "Task 1", completed: false }]}
 				onToggle={mockOnToggle}
 			/>
 		);

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Input from "./components/Input/Input";
 import useTodoDispatch from "./hooks/useTodoDispatch";
 import { ActionPoints } from "./enums/Actions.enum";
 import { ITodo } from "./context/reducer/Todo.interface";
 import useTodoState from "./hooks/useTodoState";
-import Todos from "./components/Todos/Todos";
-import Menu from "./components/Menu/Menu";
 import { Patterns } from "./enums/Patterns.enum";
 import { Title, Wrapper } from "./styles/App.styles";
+import {Input, Menu, Todos} from "./components";
 
 function App() {
 	const [filtredTodos, setFiltredTodos] = useState<ITodo[]>([]);

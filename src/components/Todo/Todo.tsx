@@ -2,14 +2,14 @@ import React from "react";
 import { TodoButton, TodoText, TodoWrapper } from "./Todo.style";
 
 type TodoProps = {
-	id: number;
+	_id: number;
 	text: string;
 	completed: boolean;
 	onToggle: (id: number) => void;
 };
 
 const Todo = ({
-	id,
+	_id,
 	text,
 	completed,
 	onToggle,
@@ -17,7 +17,7 @@ const Todo = ({
 	return (
 		<TodoWrapper>
 			<TodoButton
-				onClick={() => onToggle(id)}
+				onClick={() => onToggle(_id)}
 				completed={completed}
 				data-testid="toggle-button"
 			/>

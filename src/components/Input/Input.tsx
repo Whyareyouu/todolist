@@ -14,13 +14,13 @@ const Input = ({ placeholder, onAddTodo }: InputProps): React.JSX.Element => {
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            onAddTodo({id: Math.floor(Math.random() * 1000000), text: inputValue, completed: false})
+            onAddTodo({_id: Math.floor(Math.random() * 1000000), text: inputValue, completed: false})
             setInputValue('')
         }
     };
 
     const handleAddTodo = () => {
-        onAddTodo({id: Math.floor(Math.random() * 1000000), text: inputValue, completed: false})
+        onAddTodo({_id: Math.floor(Math.random() * 1000000), text: inputValue, completed: false})
         setInputValue('')
     }
 

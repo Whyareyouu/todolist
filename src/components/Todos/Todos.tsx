@@ -1,7 +1,7 @@
 import React from "react";
 import { ITodo } from "../../context/reducer/Todo.interface";
-import Todo from "../Todo/Todo";
 import { TodosWrapper } from "./Todos.styles";
+import {Todo} from "../index";
 
 type TodosProps = {
 	onToggle: (id: number) => void;
@@ -20,10 +20,10 @@ const Todos = ({ todos, onToggle }: TodosProps): React.JSX.Element => {
 			{todos.map((todo) => (
 				<Todo
 					text={todo.text}
-					key={todo.id}
+					key={todo._id}
 					completed={todo.completed}
 					onToggle={onToggle}
-					id={todo.id}
+					_id={todo._id}
 					data-testid="toggle-button"
 				/>
 			))}

@@ -10,7 +10,7 @@ export const reducer = (state: ITodos, action: TActions) => {
 			return {
 				...state,
 				todos: state.todos.map((todo) => {
-					if (todo.id === action.payload) {
+					if (todo._id === action.payload) {
 						return { ...todo, completed: !todo.completed };
 					}
 					return todo;

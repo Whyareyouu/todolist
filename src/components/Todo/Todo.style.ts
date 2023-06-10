@@ -44,7 +44,6 @@ export const TodoText = styled.span<TodoTextProps>`
   flex: 1;
   font-size: 16px;
   color: #de9ecf;
-
-  ${(props) => props.completed && "text-decoration: line-through;"};
+  text-decoration: ${props => props.completed ? "line-through" : "none"};
   word-break: break-all;
 `;

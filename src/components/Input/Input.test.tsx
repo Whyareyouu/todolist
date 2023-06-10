@@ -13,7 +13,7 @@ describe("Тестирование Input компонента", () => {
 
 		expect(mockOnAddTodo).toHaveBeenCalledTimes(1);
 		expect(mockOnAddTodo).toHaveBeenCalledWith({
-			id: expect.any(Number),
+			_id: expect.any(Number),
 			text: "New Todo",
 			completed: false,
 		});
@@ -31,7 +31,7 @@ describe("Тестирование Input компонента", () => {
 
 		expect(mockOnAddTodo).toHaveBeenCalledTimes(1);
 		expect(mockOnAddTodo).toHaveBeenCalledWith({
-			id: expect.any(Number),
+			_id: expect.any(Number),
 			text: "New Todo",
 			completed: false,
 		});
