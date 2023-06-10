@@ -1,6 +1,6 @@
 export interface ITodo {
     id: number;
-    task_name: string;
+    text: string;
     completed: boolean;
 }
 export interface ITodos {

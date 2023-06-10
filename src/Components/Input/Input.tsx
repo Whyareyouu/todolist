@@ -1,8 +1,9 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState} from 'react'
 import {Button, InputField, InputWrapper} from "./Input.styles";
+import {ITodo} from "../../context/reducer/Todo.interface";
 
 interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>{
-    onAddTodo: (todo: string) => void
+    onAddTodo: (todo: ITodo) => void
 }
 
 const Input = ({ placeholder, onAddTodo }: InputProps): React.JSX.Element => {
@@ -13,13 +14,13 @@ const Input = ({ placeholder, onAddTodo }: InputProps): React.JSX.Element => {
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === 'Enter') {
-            onAddTodo(inputValue);
+            onAddTodo({id: Math.floor(Math.random() * 1000000), text: inputValue, completed: false})
             setInputValue('')
         }
     };
 
     const handleAddTodo = () => {
-        onAddTodo(inputValue);
+        onAddTodo({id: Math.floor(Math.random() * 1000000), text: inputValue, completed: false})
         setInputValue('')
     }
 
