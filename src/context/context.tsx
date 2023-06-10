@@ -1,21 +1,21 @@
 import React from 'react';
 import {reducer} from "./reducer/reducer";
+import {ITodos} from "./reducer/Todo.interface";
+import {TActions} from "../Types/types";
 
 
-export const TodoListStateContext = React.createContext<undefined>(
-    undefined
-);
-export const TodoListDispatchContext = React.createContext(undefined)
+export const TodoListStateContext = React.createContext<ITodos | undefined>(undefined);
+export const TodoListDispatchContext = React.createContext<React.Dispatch<TActions> | undefined>(undefined)
 
-type FormProviderProps = {
+type TodoListProviderProps = {
     children: React.ReactNode;
 };
 
-const initialState = {
-    todoList: []
+const initialState: ITodos = {
+    todos: []
 }
 
-function TodoListProvider({ children }: FormProviderProps): JSX.Element {
+function TodoListProvider({children}: TodoListProviderProps): React.JSX.Element {
     const [state, dispatch] = React.useReducer(reducer, initialState);
     return (
         <TodoListStateContext.Provider value={state}>
@@ -25,4 +25,5 @@ function TodoListProvider({ children }: FormProviderProps): JSX.Element {
         </TodoListStateContext.Provider>
     );
 }
+
 export default TodoListProvider;
