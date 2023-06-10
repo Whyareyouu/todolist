@@ -1,20 +1,28 @@
 import React from 'react';
-import Todo from "./Components/Todo/Todo";
 import Input from "./Components/Input/Input";
 import useTodoDispatch from "./hooks/useTodoDispatch";
 import {ActionPoints} from "./context/reducer/enums";
 import {ITodo} from "./context/reducer/Todo.interface";
+import useTodoState from "./hooks/useTodoState";
+import Todos from "./Components/Todos/Todos";
 
 function App() {
     const dispatch = useTodoDispatch()
+    const {todos} = useTodoState()
+
     const onAddTodo = (todo: ITodo) => {
         dispatch({type: ActionPoints.ADD, payload: todo})
     }
+
+    const onToggle = (id: number) => {
+        dispatch({type: ActionPoints.COMPLETE, payload: id})
+    }
+
     return (
         <div className="App">
             <h1>Todos</h1>
-            <Input onAddTodo={onAddTodo} placeholder='Добавить задачу' />
-            <Todo text='12312312' completed={false} onToggle={()=> console.log("123")} />
+            <Input onAddTodo={onAddTodo} placeholder='Добавить задачу'/>
+            <Todos todos={todos} onToggle={onToggle}/>
             <div>
                 <p>Todo</p>
             </div>

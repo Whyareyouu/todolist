@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import CheckedIcon from './Todo'
 
 type TodoTextProps = {
     completed: boolean;
@@ -10,7 +11,7 @@ export const TodoWrapper = styled.div`
   margin-bottom: 8px;
 `;
 
-export const TodoCheckbox = styled.input`
+export const TodoButton = styled.button<TodoTextProps>`
   margin-right: 8px;
   appearance: none;
   width: 20px;
@@ -19,10 +20,7 @@ export const TodoCheckbox = styled.input`
   border-radius: 50%;
   cursor: pointer;
   outline: none;
-
-  &:checked {
-    background-color: #555;
-  }
+  background-color: transparent;
 `;
 
 export const TodoText = styled.span<TodoTextProps>`

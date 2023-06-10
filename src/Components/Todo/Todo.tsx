@@ -1,20 +1,18 @@
 import React from 'react';
-import {TodoCheckbox, TodoText, TodoWrapper} from "./Todo.style";
+import {TodoButton, TodoText, TodoWrapper} from "./Todo.style";
 
 
 type TodoProps = {
+    id: number;
     text: string;
     completed: boolean;
-    onToggle: () => void
+    onToggle: (id : number) => void
 }
 
-const Todo = ({ text, completed, onToggle}: TodoProps): React.JSX.Element => {
+const Todo = ({ id, text, completed, onToggle}: TodoProps): React.JSX.Element => {
     return (
         <TodoWrapper>
-            <TodoCheckbox
-                type="checkbox"
-                checked={completed}
-                onChange={onToggle}
+            <TodoButton onClick={() => onToggle(id)} completed={completed}
             />
             <TodoText completed={completed}>{text}</TodoText>
         </TodoWrapper>

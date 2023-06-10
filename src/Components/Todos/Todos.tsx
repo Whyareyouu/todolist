@@ -1,16 +1,20 @@
 import React from 'react';
 import {ITodos} from "../../context/reducer/Todo.interface";
 import Todo from "../Todo/Todo";
-import {TodosWrapepr} from "./Todos.styles";
+import {TodosWrapper} from "./Todos.styles";
 
-const Todos = ({todos}:ITodos):React.JSX.Element => {
-    const onToggle = () => {
-        console.log("123")
+type TodosProps = {
+    onToggle: (id: number) => void
+}
+const Todos = ({todos, onToggle}:ITodos & TodosProps):React.JSX.Element => {
+
+    if(todos.length === 0) {
+        return <div>У вас пока нет запланированных задач</div>
     }
     return (
-        <TodosWrapepr>
-            {todos.map(todo => <Todo text={todo.text} key={todo.id} completed={todo.completed} onToggle={onToggle} />)}
-        </TodosWrapepr>
+        <TodosWrapper>
+            {todos.map(todo => <Todo text={todo.text} key={todo.id} completed={todo.completed} onToggle={onToggle} id={todo.id} />)}
+        </TodosWrapper>
     );
 };
 
