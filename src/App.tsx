@@ -4,7 +4,6 @@ function App() {
     return (
         <div className="App">
             <h1>Todos</h1>
-            <input/>
             <div>
                 <p>Todo</p>
             </div>

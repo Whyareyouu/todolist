@@ -8,8 +8,15 @@ export const reducer = (state:ITodos, action: TActions) => {
         case ActionPoints.ADD:
             return {...state, todos: [...state.todos, action.payload]}
         case ActionPoints.COMPLETE:
-            state.todos.map(todo => todo.id === action.payload ? ((todo.completed = true), {...todo}) : todo)
-            return state
+            return {
+                ...state,
+                todos: state.todos.map((todo) => {
+                    if (todo.id === action.payload) {
+                        return { ...todo, completed: !todo.completed };
+                    }
+                    return todo;
+                }),
+            };
         case ActionPoints.CLEARCOMPLETED:
             state.todos.filter(todo => !todo.completed)
             return state
