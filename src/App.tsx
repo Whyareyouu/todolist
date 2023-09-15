@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useCallback, useEffect, useMemo, useState} from "react";
 import useTodoDispatch from "./hooks/useTodoDispatch";
 import { ActionPoints } from "./enums/Actions.enum";
 import { ITodo } from "./context/reducer/Todo.interface";
@@ -8,49 +8,51 @@ import { Title, Wrapper } from "./styles/App.styles";
 import {Input, Menu, Todos} from "./components";
 
 function App() {
-	const [filtredTodos, setFiltredTodos] = useState<ITodo[]>([]);
+	const [filteredTodos, setFilteredTodos] = useState<ITodo[]>([]);
 	const dispatch = useTodoDispatch();
 	const { todos } = useTodoState();
-
+	
 	useEffect(() => {
-		setFiltredTodos(todos);
+		setFilteredTodos(todos);
 	}, [todos]);
 
-	const onAddTodo = (todo: ITodo) => {
+	const onAddTodo = useCallback((todo: ITodo) => {
 		dispatch({ type: ActionPoints.ADD, payload: todo });
-	};
+	}, [dispatch]);
 
-	const onToggle = (id: number) => {
+	const onToggle = useCallback((id: number) => {
 		dispatch({ type: ActionPoints.COMPLETE, payload: id });
-	};
+	}, [dispatch]);
 
-	const onClearCompleted = () => {
+	const onClearCompleted = useCallback(() => {
 		dispatch({ type: ActionPoints.CLEARCOMPLETED });
-	};
+	}, [dispatch]);
 
 	const onFilter = (pattern: string) => {
 		switch (pattern) {
 			case Patterns.ALL:
-				setFiltredTodos(todos);
+				setFilteredTodos(todos);
 				break;
 			case Patterns.ACTIVE:
-				setFiltredTodos(todos.filter((todo) => !todo.completed));
+				setFilteredTodos(todos.filter((todo) => !todo.completed));
 				break;
 			case Patterns.COMPLETED:
-				setFiltredTodos(todos.filter((todo) => todo.completed));
+				setFilteredTodos(todos.filter((todo) => todo.completed));
 				break;
 			default:
-				setFiltredTodos(todos);
+				setFilteredTodos(todos);
 		}
 	};
+
+	const activeTodos = useMemo(() => todos.filter(todo => !todo.completed).length, [todos])
 
 	return (
 		<Wrapper>
 			<Title>Todos</Title>
 			<Input onAddTodo={onAddTodo} placeholder="Добавить задачу" />
-			<Todos todos={filtredTodos} onToggle={onToggle} />
+			<Todos todos={filteredTodos} onToggle={onToggle} />
 			<Menu
-				activeTodo={todos.filter((todo) => !todo.completed).length}
+				activeTodo={activeTodos}
 				onClearCompleted={onClearCompleted}
 				onFilter={onFilter}
 			/>
