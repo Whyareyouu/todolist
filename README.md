@@ -1,20 +1,46 @@
 
+# ToDo-приложение
+
+Это простое ToDo-приложение, которое позволяет вам управлять вашим текущим списком дел. Вы можете добавлять новые задачи, отмечать их как выполненные и просматривать список невыполненных и выполненных задач.
+
 ![image](https://github.com/Whyareyouu/todolist-for-mindbox/assets/54592995/24cdcd60-6a96-4924-a54b-430c70e36f1e)
 
-## link to the application: https://todolist-for-mindbox.vercel.app/
+## Ссылка на приложение:
+## [todolist](https://todolist-for-mindbox.vercel.app/)
 
-## Available Scripts
-In the project directory, you can run:
+## Инструкции по установке и запуску
 
-### `npm start`
+Чтобы установить и запустить приложение, выполните следующие команды:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1.  Установите зависимости:
+`npm install` 
+2.  Запустите приложение:
+`npm start` 
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Используемые технологии
 
-### `npm test`
+Это ToDo-приложение разработано с использованием следующих технологий:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   TypeScript
+-   React
+-   React Hooks
+
+## Основные функциональные возможности
+
+### Добавление новой задачи
+
+Вы можете добавить новую задачу, введя её в поле для ввода и нажав "Добавить".
+
+### Просмотр списка задач
+
+Задачи разделены на две категории: "Невыполненные" и "Выполненные". Вы можете видеть обе категории на главной странице приложения.
+
+### Отметка задачи как выполненной
+
+Чтобы отметить задачу как выполненную, нажмите на соответствующий чекбокс рядом с задачей в списке "Невыполненные". Задача будет перемещена в список "Выполненные".
+
+## Тестирование
+
+Ключевая функциональность приложения покрыта тестами для обеспечения стабильности и надежности. Вы можете запустить тесты с помощью следующей команды:
+`npm test`
